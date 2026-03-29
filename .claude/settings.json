@@ -1,0 +1,44 @@
+{
+  "_comment": "dotclaude-oss settings — customize for your project",
+
+  "permissions": {
+    "allow": [
+      "Bash(git:*)",
+      "Bash(npm:*)",
+      "Bash(python:*)",
+      "Bash(pytest:*)",
+      "Bash(jest:*)",
+      "Bash(docker:*)"
+    ],
+    "deny": [
+      "Bash(rm -rf:*)",
+      "Bash(curl * | bash:*)",
+      "Bash(wget * | sh:*)"
+    ]
+  },
+
+  "workflow": {
+    "plan_before_implement": true,
+    "require_tests": true,
+    "commit_convention": "conventional-commits",
+    "max_file_length": 300,
+    "max_function_length": 50
+  },
+
+  "agents": {
+    "code_reviewer": ".claude/agents/code-reviewer.md",
+    "security_auditor": ".claude/agents/security-auditor.md",
+    "architect": ".claude/agents/architect.md"
+  },
+
+  "rules": [
+    ".claude/rules/code-style.md",
+    ".claude/rules/testing.md",
+    ".claude/rules/api-conventions.md",
+    ".claude/rules/security.md"
+  ],
+
+  "local_overrides": ".claude/*.local.md",
+
+  "_note": "Add *.local.md to .gitignore for personal overrides that should not be committed"
+}
